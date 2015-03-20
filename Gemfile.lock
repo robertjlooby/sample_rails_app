@@ -49,6 +49,9 @@ GEM
     capistrano-rails (1.1.2)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
     capistrano-stats (1.1.1)
     capybara (2.1.0)
       mime-types (>= 1.16)
@@ -242,6 +245,7 @@ DEPENDENCIES
   bootstrap-will_paginate (= 0.0.9)
   capistrano (~> 3.3.0)
   capistrano-rails (~> 1.1)
+  capistrano-rvm
   capybara (= 2.1.0)
   childprocess (= 0.3.6)
   coffee-rails (= 4.0.1)
