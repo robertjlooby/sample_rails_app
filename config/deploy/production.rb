@@ -17,6 +17,8 @@ role :db,  %w{rails@45.55.191.227}
 
 server '45.55.191.227', user: 'rails', roles: %w{web app}, my_property: :my_value
 
+after 'deploy:publishing', 'puma:start'
+
 
 # Custom SSH Options
 # ==================

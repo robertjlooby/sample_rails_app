@@ -18,15 +18,11 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml')
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-namespace :deploy do
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
+namespace :puma do
+  task :start do
+    on roles(:all) do
+      execute "cd #{release_path} && source $(rvm 2.0.0-p598 do rvm env --path) && bundle exec foreman export upstart /etc/init -a sample_rails_app -u rails -l log/rails/rails_app"
+      execute "start sample_rails_app"
     end
   end
-
 end
